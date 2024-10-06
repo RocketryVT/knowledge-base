@@ -8,3 +8,6 @@ The goal is to provide a central location for all information related to our pro
 
 View source:
 - [Rocketry at Virginia Tech Knowledge Base](https://github.com/RocketryVT/knowledge-base)
+
+Template source:
+- [MDBook Starter](https://github.com/MichaelCurrin/mdbook-quickstart)
