@@ -84,9 +84,11 @@ module unload tinkercliffs-rome/ANSYS/23.2
 1. ```brew install --cask xquartz```
 
 Once ssh'ed into ARC run the following command (make sure to pass the -X flag when ssh'ing into ARC):
+
 2. ```touch ~/.Xauthority```
 
 Test it out with:
+
 3. ```module load ANSYS/22.1```
 4. ```fluent --help```
 
