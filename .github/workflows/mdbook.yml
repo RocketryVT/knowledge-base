@@ -57,7 +57,7 @@ jobs:
               rm "${MDBOOK_TARBALL}"
               mkdir ~/bin
               mv ./mdbook ~/bin/
-              echo "::add-path::~/bin"
+              echo "~/bin" >> $GITHUB_PATH
 
       - name: Setup Pages
         id: pages
