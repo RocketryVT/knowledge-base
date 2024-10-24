@@ -13,6 +13,11 @@ You will most likely be using the TinkerCliffs cluster.
 
 To access the cluster you will need to use a terminal and ssh into the cluster.
 
+Before SSH'ing you need to either be on the VT network or use the VPN.
+
+- [Windows VPN Instructions](https://vt4help.service-now.com/sp?id=kb_article&sysparm_article=KB0010740)
+- [Mac VPN Instructions](https://vt4help.service-now.com/sp?id=kb_article&sysparm_article=KB0012672)
+
 ```shell
 ssh <username/PID>@tinkercliffs1.arc.vt.edu # No <> brackets | Use tinkercliffs2.arc.vt.edu if 1 is full/down
 ```
@@ -79,21 +84,38 @@ module load tinkercliffs-rome/ANSYS/23.2
 module unload tinkercliffs-rome/ANSYS/23.2
 ```
 
-## If on Mac follow the following steps
+## If on Mac follow the following steps (this includes the X11 forwarding)
 
 1. ```brew install --cask xquartz```
-
-Once ssh'ed into ARC run the following command (make sure to pass the -X flag when ssh'ing into ARC):
-
-2. ```touch ~/.Xauthority```
-
-Test it out with:
-
-3. ```module load ANSYS/22.1```
-4. ```fluent --help```
+2. ``` ssh -X <username/PID>@tinkercliffs1.arc.vt.edu ```
+3. ```touch ~/.Xauthority```
+4. ```module load ANSYS/22.1```
+5. ```fluent --help```
 
 You should see the help menu for Fluent.
 
 ![Fluent Help Menu](./images/Fluent%20Help%20Menu%20X11.jpg)
 
 If that doesn't work install XQuartz from [here](https://www.xquartz.org/).
+
+## If on Windows, if you want X11 forwarding, follow the following steps
+
+1. Setup WSL2 with Ubuntu 24.04 LTS (or any other distro).
+2. Login the same way as you would on Mac/Linux.
+3. ``` ssh -X <username/PID>@tinkercliffs1.arc.vt.edu ```
+
+## Get added to Globus
+
+Globus shares a users directory with others through the Globus website.
+
+Head to the [Globus website](https://www.globus.org) and login by selecting Virginia Tech as your organization.
+
+You can get added to Globus by contacting the person on the team who is the POC for ARC related things.
+
+## Relevant Links
+
+- <https://github.com/AdvancedResearchComputing/examples/tree/master/ansys>
+- <https://www.docs.arc.vt.edu/resources/storage.html>
+- <https://www.docs.arc.vt.edu/software/globus.html#globus>
+- <https://docs.globus.org/globus-connect-personal/install/linux/>
+- <https://app.globus.org/activity>
