@@ -68,7 +68,7 @@ jobs:
               rm "${MERMAID_TARBALL}"
               mv ./mdbook-mermaid ~/bin/
               echo "~/bin" >> $GITHUB_PATH
-              mdbook-mermaid install .
+              mdbook-mermaid install ./src
 
       - name: Setup Pages
         id: pages
