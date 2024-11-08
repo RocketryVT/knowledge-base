@@ -41,7 +41,7 @@ jobs:
               rm "${MDBOOK_TARBALL}"
               mkdir -p ~/bin
               mv ./mdbook ~/bin/
-              echo "~/bin" >> $GITHUB_PATH
+              echo "$HOME/bin" >> $GITHUB_PATH
 
       - name: Install mdbook-mermaid
         run: |
