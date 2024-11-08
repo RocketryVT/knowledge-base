@@ -16,30 +16,31 @@
 The following markdown code will render a math equation using MathJax.
 
 ~~~markdown
-$$
+\\[
 \begin{align*}
 \dot{x} & = \sigma(y-x) \\
 \dot{y} & = \rho x - y - xz \\
 \dot{z} & = -\beta z + xy
 \end{align*}
-$$
+]//
 ~~~
 
 The output will look like this:
 
-$$
+\\[
 \begin{align*}
 \dot{x} & = \sigma(y-x) \\
 \dot{y} & = \rho x - y - xz \\
 \dot{z} & = -\beta z + xy
 \end{align*}
-$$
+]//
 
 ## Using Mermaid.js
 
 The following markdown code will render a flowchart using Mermaid.js.
 
 ~~~markdown
+
 ```mermaid
 graph TD;
     A-->B;
@@ -52,6 +53,7 @@ graph TD;
 The output will look like this:
 
 ```mermaid
+
 graph TD;
     A-->B;
     A-->C;
