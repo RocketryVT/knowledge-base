@@ -52,7 +52,7 @@ jobs:
               rm "${MERMAID_TARBALL}"
               mkdir -p ~/bin
               mv ./mdbook-mermaid ~/bin/
-              echo "~/bin" >> $GITHUB_PATH
+              echo "$HOME/bin" >> $GITHUB_PATH
               mdbook-mermaid install .
         # run: |
         #       cargo install mdbook-mermaid
