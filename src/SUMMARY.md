@@ -9,5 +9,6 @@
 - [Hardware](Hardware/README.md)
   - [Batteries](Hardware/README.md)
 - [Software](Software/README.md)
+  - [Filters](Software/Filters/README.md)
 - [Ansys](Ansys/README.md)
   - [Cloud Compute](Ansys/cloud-compute.md)
