@@ -7,7 +7,7 @@
   - [Hardware](2024-2025/Hardware/README.md)
   - [Software](2024-2025/Software/README.md)
 - [Hardware](Hardware/README.md)
-  - [Batteries](Hardware/README.md)
+  - [Batteries](Hardware/Batteries/README.md)
 - [Software](Software/README.md)
   - [Filters](Software/Filters/README.md)
 - [Ansys](Ansys/README.md)
