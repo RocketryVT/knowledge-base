@@ -8,6 +8,7 @@
   - [Software](2024-2025/Software/README.md)
 - [Hardware](Hardware/README.md)
   - [Batteries](Hardware/Batteries/README.md)
+  - [Active Drag System](Hardware/ActiveDragSystem/ads.md)
 - [Software](Software/README.md)
   - [Filters](Software/Filters/README.md)
 - [Ansys](Ansys/README.md)
