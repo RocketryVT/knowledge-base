@@ -24,7 +24,8 @@ High-Level Component View:
 ![](./images/active-drag-system-top-view.png)
 ![](./images/active-drag-system-bottom-view.png)
 
-The following are images produced by the gerbers provided to OSH Park, LLC for PCB fabrication in the layer order of 1 - 4. 
+The following are images produced by the gerbers provided to OSH Park, LLC for PCB fabrication in the layer order of 1 - 4.
+
 ![](./images/active-drag-system-gerber-top.png)
 ![](./images/active-drag-system-gerber-internal-one.png)
 ![](./images/active-drag-system-gerber-internal-two.png)
