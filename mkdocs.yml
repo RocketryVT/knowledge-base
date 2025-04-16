@@ -4,6 +4,7 @@ repo_url: https://github.com/RocketryVT/knowledge-base
 edit_uri: edit/main/docs/
 theme:
   name: material
+  logo: assets/favicon.ico
   features:
     - content.tabs.link
     - content.code.copy
