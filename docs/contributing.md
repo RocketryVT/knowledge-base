@@ -5,7 +5,7 @@
 
 1. Navigate to the `src` directory.
 2. Edit or add markdown files.
-3. Update the `SUMMARY.md` file to include new files.
+3. Update the [SUMMARY.md](./SUMMARY.md) file and [mkdocs.yml](../mkdocs.yml) to include new files.
 4. Commit your changes.
 5. Push your changes to GitHub.
 6. GitHub Actions will build and deploy the site.
@@ -13,24 +13,37 @@
 
 ## Using MathJax
 
-The following markdown code will render a math equation using MathJax. Note: some features aren't avaiable, like we use `\\\\` for newline instead of `\\`.
+The following markdown code will render a math equation using MathJax.
 
-~~~markdown
+```markdown
+\cos x=\sum_{k=0}^{\infty}\frac{(-1)^k}{(2k)!}x^{2k}
+```
+
+The output will look like this:
+
+
+$$
+\cos x=\sum_{k=0}^{\infty}\frac{(-1)^k}{(2k)!}x^{2k}
+$$
+
+Here's an example using '\\\' as a new line character:
+
+```markdown
 $$
 \begin{aligned}
-    \dot{x} & = \sigma(y-x) \\\\
-    \dot{y} & = \rho x - y - xz \\\\
+    \dot{x} & = \sigma(y-x) \\
+    \dot{y} & = \rho x - y - xz \\
     \dot{z} & = -\beta z + xy
 \end{aligned}
 $$
 ```
-~~~
 
 The output will look like this:
+
 $$
 \begin{aligned}
-    \dot{x} & = \sigma(y-x) \\\\
-    \dot{y} & = \rho x - y - xz \\\\
+    \dot{x} & = \sigma(y-x) \\
+    \dot{y} & = \rho x - y - xz \\
     \dot{z} & = -\beta z + xy
 \end{aligned}
 $$
