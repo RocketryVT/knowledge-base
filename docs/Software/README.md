@@ -4,4 +4,4 @@ This directory contains the details and notes for the system design, software, a
 
 ## Filters
 
-[Filters](./Filters/)
+[Filters](./Filters/README.md)
