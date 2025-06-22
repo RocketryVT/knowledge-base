@@ -14,3 +14,4 @@ Filters are used to modify the data in some way. They can be used to remove nois
 - <https://garethx.com/posts/cart-pole-mpc/>
 - <https://github.com/rlabbe/Kalman-and-Bayesian-Filters-in-Python>
 - <https://ctms.engin.umich.edu>
+- <https://www.emerson.com/documents/automation/lambda-tuning-universal-method-for-pid-controllers-in-process-control-en-42704.pdf>
