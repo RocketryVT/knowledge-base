@@ -1,0 +1,1440 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://rocketryatvirginiatech.org/knowledge-base/Devdocs/installation/Linux/">
+      
+      
+        <link rel="prev" href="../Overview/">
+      
+      
+        <link rel="next" href="../Mac/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>Linux - Rocketry at Virginia Tech Knowledge Base</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#intro-down-in-the-weeds" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Rocketry at Virginia Tech Knowledge Base" class="md-header__button md-logo" aria-label="Rocketry at Virginia Tech Knowledge Base" data-md-component="logo">
+      
+  <img src="../../../assets/favicon.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Rocketry at Virginia Tech Knowledge Base
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Linux
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/RocketryVT/knowledge-base" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Rocketry at Virginia Tech Knowledge Base" class="md-nav__button md-logo" aria-label="Rocketry at Virginia Tech Knowledge Base" data-md-component="logo">
+      
+  <img src="../../../assets/favicon.ico" alt="logo">
+
+    </a>
+    Rocketry at Virginia Tech Knowledge Base
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/RocketryVT/knowledge-base" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contributing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SUMMARY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Summary
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Dev Environment
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Dev Environment
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Terminal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Bash Terminal
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CMake/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CMake
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git/GitHub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Serial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Serial Tool
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Installation and Setup
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            Installation and Setup
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Linux
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linux
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#intro-down-in-the-weeds" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intro: Down in the Weeds
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-installation-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manual Installation Guide
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#script-install-for-rpi-native-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      Script Install (for RPi-Native ONLY)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uploading-guide-picotool" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uploading Guide - Picotool
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging-guide-minicom" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debugging Guide - Minicom
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mac/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mac
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Windows
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Ansys/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Ansys
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Ansys
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Ansys/cloud-compute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cloud Compute
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Hardware/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Hardware
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Hardware
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Hardware/ActiveDragSystem/ads/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Active Drag System
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Hardware/Batteries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Batteries
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Software/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Software
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Software
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Software/Filters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Filters
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Previous Design Years
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Previous Design Years
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../2024-2025/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    2024-2025
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8_1" id="__nav_8_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_1">
+            <span class="md-nav__icon md-icon"></span>
+            2024-2025
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2024-2025/Design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Design
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2024-2025/Hardware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hardware
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2024-2025/Software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Software
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#intro-down-in-the-weeds" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intro: Down in the Weeds
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-installation-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manual Installation Guide
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#script-install-for-rpi-native-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      Script Install (for RPi-Native ONLY)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uploading-guide-picotool" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uploading Guide - Picotool
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging-guide-minicom" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debugging Guide - Minicom
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/RocketryVT/knowledge-base/edit/main/docs/Devdocs/installation/Linux.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/RocketryVT/knowledge-base/raw/main/docs/Devdocs/installation/Linux.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+  <h1>Linux</h1>
+
+<h2 id="intro-down-in-the-weeds">Intro: Down in the Weeds</h2>
+<p>If you're using a Linux system, your installation process is going to involve mainly configuring the backend manually. This does mean that you can use any editor that you want to, but it requires a bit more initial setup. We'll be installing a bunch of system packages, cloning a couple of repositories and building/installing them, and setting and modifying a couple of system variables. This guide assumes you're familiar with the basic usage of a terminal and are comfortable moving around between directories and executing commands; if you aren't, check out the accompanying guide labeled <code>Bash Terminal</code> in the sidebar for a refresher.</p>
+<p>Note that for the purposes of this guide, we'll assume that you're using Debian Linux (i.e. Ubuntu), and as such, your default package manager is aptitude (<code>apt</code>). If you're using a different non-Debian distro with a separate package manager, we'll assume you're familiar enough with its usage to be able to look up and install the packages listed here, as the rest of the steps listed should be the same.</p>
+<h2 id="manual-installation-guide">Manual Installation Guide</h2>
+<p>Pretty much this entire process will be done in a terminal environment, but luckily it shouldn't take long - so open one up and get comfy. Contrary to the other tutorial pages (which are formatted with fake <code>&gt;_</code> characters to simulate a terminal for demonstration), all of the command boxes in this section should be ready to copy-paste into a terminal and execute directly.</p>
+<ol>
+<li>
+<p>First, install all the necessary packages for development by running these commands. This may take several minutes; the packages named something like <code>gcc-arm-none-eabi</code> or <code>build-essential</code> are the full C++ toolchains necessary for pico development, so they may take up a couple gigabytes.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>git<span class="w"> </span>cmake<span class="w"> </span>gcc-arm-none-eabi<span class="w"> </span>libnewlib-arm-none-eabi<span class="w"> </span>build-essential<span class="w"> </span>libstdc++-arm-none-eabi-newlib<span class="w"> </span>pkg-config<span class="w"> </span>libusb-1.0-0-dev<span class="w"> </span>minicom
+</span></code></pre></div></p>
+</li>
+<li>
+<p>Next, we only need to install <code>picotool</code> natively should you wish to upload your code using it. Clone the repository itself wherever you'd prefer, then <code>cd</code> into it:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/raspberrypi/picotool.git
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">cd</span><span class="w"> </span>picotool
+</span></code></pre></div></p>
+</li>
+<li>
+<p>Finally, run a <code>CMake</code> build on the repo, and call <code>sudo make install</code> afterwards to set the appropriate environment variables.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>mkdir<span class="w"> </span>build
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">cd</span><span class="w"> </span>build
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>cmake<span class="w"> </span>..
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>sudo<span class="w"> </span>make<span class="w"> </span>install
+</span></code></pre></div></p>
+</li>
+</ol>
+<p>Note that normally, there would be additional steps included for cloning and building the <code>pico-sdk</code> repo as well; this repo is all of the SDK files and headers necessary for development with the RP2040/2350. Luckily, it's included as a submodule in our shared repos, so it is installed and configured automatically when you call <code>git submodule update --init --recursive</code> at the top level in your development repo; that saves you a couple steps here in the installation process.</p>
+<h2 id="script-install-for-rpi-native-only">Script Install (for RPi-Native ONLY)</h2>
+<p>Luckily for us, the Raspberry Pi Foundation recognized that this process is a bit of a pain, and so they automated much of it for us via a readily-available install script - the caveat is that it's designed specifically to <em>only</em> be used on another Raspberry Pi SBC, which is already running Raspbian. If you want to do all of your development while SSH'd into a spare Raspberry Pi you have laying around or are using one as a computer itself for your development environment, then this script is your friend - the guide for using it can be found <a href="https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf#%5B%7B%22num%22%3A34%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C115%2C709.282%2Cnull%5D">here</a>, and it's not worth it to duplicate the exact steps listed in it into this guide.</p>
+<h2 id="uploading-guide-picotool">Uploading Guide - Picotool</h2>
+<p>Once you have all of these packages natively installed and configured, to actually upload and build your code you have two options. You can either run <code>picotool</code> (which was installed in steps 2 and 3 above) which includes a bunch of scripts for automatically rebooting the microcontroller and uploading the files without having to un/re-plug the USB cable into the board, or you can do it manually via doing the latter and manually putting the board into boot mode and copying the file over yourself. This guide will only detail using <code>picotool</code>, as it is by far the easier option; should you want to drag and drop the file manually, the process is exactly the same as on Windows, with some nice extra Linux sparkle for mounting the board as a USB drive to do so.</p>
+<p>Before using <code>picotool</code>, we quickly just need to make sure that your device recognizes the board and is ready to upload code to it. In a terminal, run the command <code>lsusb</code> (included in the <code>libusb-1.0-0-dev</code> package we had you install in step 1) - this will list out all of the devices connected to your USB ports, and will likely include a couple of adapters, hubs, and even sometimes full devices like WiFi or Bluetooth hosts (which means those devices are internally communicating with your computer over USB). 
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>&gt;<span class="w"> </span>lsusb
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Bus<span class="w"> </span><span class="m">001</span><span class="w"> </span>Device<span class="w"> </span><span class="m">001</span>:<span class="w"> </span>ID<span class="w"> </span>1d6b:0002<span class="w"> </span>Linux<span class="w"> </span>Foundation<span class="w"> </span><span class="m">2</span>.0<span class="w"> </span>root<span class="w"> </span>hub
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Bus<span class="w"> </span><span class="m">002</span><span class="w"> </span>Device<span class="w"> </span><span class="m">001</span>:<span class="w"> </span>ID<span class="w"> </span>1d6b:0003<span class="w"> </span>Linux<span class="w"> </span>Foundation<span class="w"> </span><span class="m">3</span>.0<span class="w"> </span>root<span class="w"> </span>hub
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>Bus<span class="w"> </span><span class="m">003</span><span class="w"> </span>Device<span class="w"> </span><span class="m">001</span>:<span class="w"> </span>ID<span class="w"> </span>1d6b:0002<span class="w"> </span>Linux<span class="w"> </span>Foundation<span class="w"> </span><span class="m">2</span>.0<span class="w"> </span>root<span class="w"> </span>hub
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>Bus<span class="w"> </span><span class="m">003</span><span class="w"> </span>Device<span class="w"> </span><span class="m">002</span>:<span class="w"> </span>ID<span class="w"> </span>32ac:0002<span class="w"> </span>Framework<span class="w"> </span>HDMI<span class="w"> </span>Expansion<span class="w"> </span>Card
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>Bus<span class="w"> </span><span class="m">003</span><span class="w"> </span>Device<span class="w"> </span><span class="m">003</span>:<span class="w"> </span>ID<span class="w"> </span>27c6:609c<span class="w"> </span>Shenzhen<span class="w"> </span>Goodix<span class="w"> </span>Technology<span class="w"> </span>Co.,Ltd.<span class="w"> </span>Goodix<span class="w"> </span>USB2.0<span class="w"> </span>MISC
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>Bus<span class="w"> </span><span class="m">003</span><span class="w"> </span>Device<span class="w"> </span><span class="m">004</span>:<span class="w"> </span>ID<span class="w"> </span><span class="m">8087</span>:0032<span class="w"> </span>Intel<span class="w"> </span>Corp.<span class="w"> </span>AX210<span class="w"> </span>Bluetooth
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>Bus<span class="w"> </span><span class="m">004</span><span class="w"> </span>Device<span class="w"> </span><span class="m">001</span>:<span class="w"> </span>ID<span class="w"> </span>1d6b:0003<span class="w"> </span>Linux<span class="w"> </span>Foundation<span class="w"> </span><span class="m">3</span>.0<span class="w"> </span>root<span class="w"> </span>hub
+</span></code></pre></div>
+The one you're looking for is <code>Raspberry Pi Pico</code> - if you see one, that means your system recognizes the board, and is able to talk to it properly. If you <em>don't</em> see one, and you've already uploaded code, try re-plugging in the USB cable, and if that doesn't work, try re-plugging in the cable while holding down the <code>BOOTSEL</code> button on the board to force it into upload mode. If you <em>haven't</em> yet uploaded code, try both of the above, and if those don't work, try a different port and/or a different cable. <strong>It is unfortunately quite common for micro-USB cables to only have their power lines properly wired internally, especially if the cable is "flat"</strong> - there's a good chance you just need to find a different cable with its data lines wired as well, and for lack of a better term, these cables tend to be "nicer" than their power-only counterparts.</p>
+<p>//TODO: Include sample output with pico listed as formatted</p>
+<p>Once you've done the above and confirmed that you can see/talk to the board, the process for using <code>picotool</code> is nice and easy - just run the following command after performing a build with <code>cmake</code>, and set the path flag (below example is <code>build/src/your_executable.uf2</code>) to wherever the <code>.uf2</code> file that <code>cmake</code> generated was spit out. Note that your build files will almost <em>always</em> be stored at <code>build/src/[name].uf2</code>, inside the build folder and matching subdirectory for where your executable was configured in its <code>CMakeLists.txt</code>. The <code>-f</code> flag tells the tool to <code>force</code> the board into boot mode so it can copy the file into it, without any external intervention from you.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>picotool<span class="w"> </span>load<span class="w"> </span>-f<span class="w"> </span>build/src/your_executable.uf2
+</span></code></pre></div></p>
+<p>Do note: if the executable that you supply does not exist, <code>picotool</code> will reboot the device to upload it, but fail in the process; <strong>this means whatever code was on the board beforehand will stop running, but no new code will replace it.</strong> In our experience, it is common for a successful <code>picotool</code> upload following a non-successful one (i.e. if you're using a compound command to build and then upload and try to upload broken code, then fix it and try again with compiling code) to require re-plugging in the USB cable to reboot the device. Be wary of this - <strong>always try re-plugging in the cable and trying again before modifying your code if your hardware is being strange.</strong></p>
+<h2 id="debugging-guide-minicom">Debugging Guide - Minicom</h2>
+<p>To interact with the board over a wire and use the serial tool, we luckily only need to run a terminal-native serial interpreter, as Linux natively exposes your USB ports to the terminal (as it exposes <em>everything</em> to the terminal). The keen-eyed reader may have spotted that we already had you install <code>minicom</code> as part of the initial big block of packages installed in step 1 above, so you should already have it. Now, we just have to tell you how to use it.</p>
+<p>Before booting <code>minicom</code> itself, we need to figure out which internal port your OS has assigned to the board so we can tell it what to "listen" to. Assuming that your board is plugged in and operating as usual (i.e. you've just uploaded code and the board is operating as standard), run the command <code>ls /dev</code> in a terminal - the output of this will likely be quite long, which is perfectly normal. For reasons outside the scope of explaining in this document, Linux internally recognizes <strong><em>every</em></strong> device connected to it as a file - those files are stored in the <code>/dev</code> directory, so effectively what we're doing is listing out all the devices internally connected to the OS.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>&gt;<span class="w"> </span>ls<span class="w"> </span>/dev
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>acpi_thermal_rel<span class="w">  </span>fd<span class="w">         </span>loop6<span class="w">         </span>nvme0n1p4<span class="w">  </span>tty<span class="w">    </span>tty27<span class="w">  </span>tty46<span class="w">  </span>tty8<span class="w">    </span>ttyS26<span class="w">       </span>vcs1<span class="w">   </span>vcsu6
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>autofs<span class="w">            </span>full<span class="w">       </span>loop7<span class="w">         </span>nvme0n1p5<span class="w">  </span>tty0<span class="w">   </span>tty28<span class="w">  </span>tty47<span class="w">  </span>tty9<span class="w">    </span>ttyS27<span class="w">       </span>vcs2<span class="w">   </span>vcsu7
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>block<span class="w">             </span>fuse<span class="w">       </span>loop8<span class="w">         </span>nvram<span class="w">      </span>tty1<span class="w">   </span>tty29<span class="w">  </span>tty48<span class="w">  </span>ttyS0<span class="w">   </span>ttyS28<span class="w">       </span>vcs3<span class="w">   </span>vfio
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>btrfs-control<span class="w">     </span>gpiochip0<span class="w">  </span>loop-control<span class="w">  </span>port<span class="w">       </span>tty10<span class="w">  </span>tty3<span class="w">   </span>tty49<span class="w">  </span>ttyS1<span class="w">   </span>ttyS29<span class="w">       </span>vcs4<span class="w">   </span>vga_arbiter
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>bus<span class="w">               </span>gpiochip1<span class="w">  </span>mapper<span class="w">        </span>ppp<span class="w">        </span>tty11<span class="w">  </span>tty30<span class="w">  </span>tty5<span class="w">   </span>ttyS10<span class="w">  </span>ttyS3<span class="w">        </span>vcs5<span class="w">   </span>vhci
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>char<span class="w">              </span>hidraw0<span class="w">    </span>mei0<span class="w">          </span>psaux<span class="w">      </span>tty12<span class="w">  </span>tty31<span class="w">  </span>tty50<span class="w">  </span>ttyS11<span class="w">  </span>ttyS30<span class="w">       </span>vcs6<span class="w">   </span>vhost-net
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>console<span class="w">           </span>hidraw1<span class="w">    </span>mem<span class="w">           </span>ptmx<span class="w">       </span>tty13<span class="w">  </span>tty32<span class="w">  </span>tty51<span class="w">  </span>ttyS12<span class="w">  </span>ttyS31<span class="w">       </span>vcs7<span class="w">   </span>vhost-vsock
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>core<span class="w">              </span>hidraw2<span class="w">    </span>mqueue<span class="w">        </span>ptp0<span class="w">       </span>tty14<span class="w">  </span>tty33<span class="w">  </span>tty52<span class="w">  </span>ttyS13<span class="w">  </span>ttyS4<span class="w">        </span>vcsa<span class="w">   </span>watchdog
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>cpu<span class="w">               </span>hpet<span class="w">       </span>mtd<span class="w">           </span>pts<span class="w">        </span>tty15<span class="w">  </span>tty34<span class="w">  </span>tty53<span class="w">  </span>ttyS14<span class="w">  </span>ttyS5<span class="w">        </span>vcsa1<span class="w">  </span>watchdog0
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>cpu_dma_latency<span class="w">   </span>hugepages<span class="w">  </span>mtd0<span class="w">          </span>random<span class="w">     </span>tty16<span class="w">  </span>tty35<span class="w">  </span>tty54<span class="w">  </span>ttyS15<span class="w">  </span>ttyS6<span class="w">        </span>vcsa2<span class="w">  </span>watchdog1
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>cros_ec<span class="w">           </span>hwrng<span class="w">      </span>mtd0ro<span class="w">        </span>rfkill<span class="w">     </span>tty17<span class="w">  </span>tty36<span class="w">  </span>tty55<span class="w">  </span>ttyS16<span class="w">  </span>ttyS7<span class="w">        </span>vcsa3<span class="w">  </span>zero
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>cuse<span class="w">              </span>input<span class="w">      </span>mtd1<span class="w">          </span>rtc<span class="w">        </span>tty18<span class="w">  </span>tty37<span class="w">  </span>tty56<span class="w">  </span>ttyS17<span class="w">  </span>ttyS8<span class="w">        </span>vcsa4
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>disk<span class="w">              </span>kmsg<span class="w">       </span>mtd1ro<span class="w">        </span>rtc0<span class="w">       </span>tty19<span class="w">  </span>tty38<span class="w">  </span>tty57<span class="w">  </span>ttyS18<span class="w">  </span>ttyS9<span class="w">        </span>vcsa5
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>dma_heap<span class="w">          </span>kvm<span class="w">        </span>net<span class="w">           </span>shm<span class="w">        </span>tty2<span class="w">   </span>tty39<span class="w">  </span>tty58<span class="w">  </span>ttyS19<span class="w">  </span>udmabuf<span class="w">      </span>vcsa6
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>dri<span class="w">               </span>log<span class="w">        </span>ng0n1<span class="w">         </span>snapshot<span class="w">   </span>tty20<span class="w">  </span>tty4<span class="w">   </span>tty59<span class="w">  </span>ttyS2<span class="w">   </span>uhid<span class="w">         </span>vcsa7
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>drm_dp_aux0<span class="w">       </span>loop0<span class="w">      </span>null<span class="w">          </span>snd<span class="w">        </span>tty21<span class="w">  </span>tty40<span class="w">  </span>tty6<span class="w">   </span>ttyS20<span class="w">  </span>uinput<span class="w">       </span>vcsu
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>drm_dp_aux1<span class="w">       </span>loop1<span class="w">      </span>nvme0<span class="w">         </span>stderr<span class="w">     </span>tty22<span class="w">  </span>tty41<span class="w">  </span>tty60<span class="w">  </span>ttyS21<span class="w">  </span>urandom<span class="w">      </span>vcsu1
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>drm_dp_aux2<span class="w">       </span>loop2<span class="w">      </span>nvme0n1<span class="w">       </span>stdin<span class="w">      </span>tty23<span class="w">  </span>tty42<span class="w">  </span>tty61<span class="w">  </span>ttyS22<span class="w">  </span>usb<span class="w">          </span>vcsu2
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>drm_dp_aux3<span class="w">       </span>loop3<span class="w">      </span>nvme0n1p1<span class="w">     </span>stdout<span class="w">     </span>tty24<span class="w">  </span>tty43<span class="w">  </span>tty62<span class="w">  </span>ttyS23<span class="w">  </span>userfaultfd<span class="w">  </span>vcsu3
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>drm_dp_aux4<span class="w">       </span>loop4<span class="w">      </span>nvme0n1p2<span class="w">     </span>tpm0<span class="w">       </span>tty25<span class="w">  </span>tty44<span class="w">  </span>tty63<span class="w">  </span>ttyS24<span class="w">  </span>userio<span class="w">       </span>vcsu4
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>fb0<span class="w">               </span>loop5<span class="w">      </span>nvme0n1p3<span class="w">     </span>tpmrm0<span class="w">     </span>tty26<span class="w">  </span>tty45<span class="w">  </span>tty7<span class="w">   </span>ttyS25<span class="w">  </span>vcs<span class="w">          </span>vcsu5
+</span></code></pre></div></p>
+<p>What we're looking for is a device labeled <code>tty[something]</code> - this is the port that the board is sending in its serial data over. You may have to run the command twice with and without the board to figure out what it's connected to, as it won't be listed in <code>/dev</code> if it's not plugged in. 99% of the time (if only one board is plugged in), this will end up being <code>ttyUSB0</code> or <code>ttyACM0</code>, for a full path of <code>/dev/ttyUSB0</code> or <code>/dev/ttyACM0</code>.</p>
+<p>//TODO: Test/add alternative method using <code>ls /dev/serial/by-id</code> instead of just <code>ls /dev</code></p>
+<p>With this port found, opening it with <code>minicom</code> is luckily <em>very</em> simple - just a single command. Run <code>minicom -D /dev/port_path</code>, where <code>port_path</code> gets replaced with the path to the device port that you found in the previous step. </p>
+<p>With <code>minicom</code> open, the board should echo any characters you type back to you - you'll know that it's working if when you type things (which will <em>send</em> those characters over serial), they show up in the <code>minicom</code> window (which means you <em>received</em> those characters over serial after the board sent them back). If you can see what you type, congratulations! You're now communicating with the board, and are ready to start debugging your code and running tests - see the <code>Serial Tool</code> guide on the sidebar for how to use the serial tool to execute commands on the board.</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 26, 2025 19:23:25 UTC">October 26, 2025</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Created">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 26, 2025 19:23:25 UTC">October 26, 2025</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["content.tabs.link", "content.code.copy", "content.code.select", "content.code.annotate", "content.action.edit", "content.action.view", "navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

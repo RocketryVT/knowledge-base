@@ -1,0 +1,1548 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://rocketryatvirginiatech.org/knowledge-base/Devdocs/Terminal/">
+      
+      
+        <link rel="prev" href="../../SUMMARY/">
+      
+      
+        <link rel="next" href="../CMake/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>Bash Terminal - Rocketry at Virginia Tech Knowledge Base</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-terminal-and-you" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Rocketry at Virginia Tech Knowledge Base" class="md-header__button md-logo" aria-label="Rocketry at Virginia Tech Knowledge Base" data-md-component="logo">
+      
+  <img src="../../assets/favicon.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Rocketry at Virginia Tech Knowledge Base
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Bash Terminal
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/RocketryVT/knowledge-base" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Rocketry at Virginia Tech Knowledge Base" class="md-nav__button md-logo" aria-label="Rocketry at Virginia Tech Knowledge Base" data-md-component="logo">
+      
+  <img src="../../assets/favicon.ico" alt="logo">
+
+    </a>
+    Rocketry at Virginia Tech Knowledge Base
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/RocketryVT/knowledge-base" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contributing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SUMMARY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Summary
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Dev Environment
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Dev Environment
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Bash Terminal
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Bash Terminal
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-terminal-and-you" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Terminal and You
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intro-and-terminalology" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intro and Termin(al)ology
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Commands
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-command-quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Command Quick Reference
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filepaths-filepaths-galore" class="md-nav__link">
+    <span class="md-ellipsis">
+      Filepaths, Filepaths Galore
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#packages-and-where-to-find-them" class="md-nav__link">
+    <span class="md-ellipsis">
+      Packages and Where to Find Them
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CMake/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CMake
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git/GitHub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Serial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Serial Tool
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Installation and Setup
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            Installation and Setup
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/Linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linux
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/Mac/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mac
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/Windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Windows
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Ansys/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Ansys
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Ansys
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Ansys/cloud-compute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cloud Compute
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Hardware/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Hardware
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Hardware
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Hardware/ActiveDragSystem/ads/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Active Drag System
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Hardware/Batteries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Batteries
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Software/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Software
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Software
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Software/Filters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Filters
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Previous Design Years
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Previous Design Years
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../2024-2025/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    2024-2025
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8_1" id="__nav_8_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_1">
+            <span class="md-nav__icon md-icon"></span>
+            2024-2025
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2024-2025/Design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Design
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2024-2025/Hardware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hardware
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2024-2025/Software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Software
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-terminal-and-you" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Terminal and You
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intro-and-terminalology" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intro and Termin(al)ology
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Commands
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-command-quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Command Quick Reference
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filepaths-filepaths-galore" class="md-nav__link">
+    <span class="md-ellipsis">
+      Filepaths, Filepaths Galore
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#packages-and-where-to-find-them" class="md-nav__link">
+    <span class="md-ellipsis">
+      Packages and Where to Find Them
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/RocketryVT/knowledge-base/edit/main/docs/Devdocs/Terminal.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/RocketryVT/knowledge-base/raw/main/docs/Devdocs/Terminal.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+  <h1>Bash Terminal</h1>
+
+<h2 id="the-terminal-and-you">The Terminal and You</h2>
+<p>The terminal is one of the most fundamental tools to use any computer ever made at a low level. It gives you the most direct access possible to your files; in fact, it <em>only</em> gives you access to your files. The terminal is based on having a <strong>working directory</strong> - i.e., when you are in a terminal environment, it is always running <em>inside some directory.</em> The core of learning how to use a terminal is familiarizing yourself with the commands used to <strong>change between directories</strong>, <strong>list</strong> the contents of directories, and <strong>make and delete</strong> files and directories.</p>
+<p>The most common terminal used today is <code>bash</code>, which stands for "Bourne Again SHell"; the name isn't important - what matters is that it is relatively easy to access a terminal from any computer, and that said terminal is most likely going to be <code>bash</code> (unless you <em>really</em> know what you're doing). This means that once we get a terminal running on <em>any</em> system, the commands will largely be the same. On Linux and MacOS, the terminal is integrated directly; on Windows, the default terminal is Powershell, so you'll need to install WSL to run Linux inside your Windows machine to access a <code>bash</code> terminal instead. </p>
+<h2 id="intro-and-terminalology">Intro and Termin(al)ology</h2>
+<p>When working in a terminal, there are a couple terms and concepts you'll need to be familiar with to get the full functionality out of your environment. The first is the concept of a <strong>working directory</strong> - the current directory that your terminal is in. When you open a terminal for the first time, unless explicitly configured otherwise, it will open in your <strong>home directory</strong>; this most commonly will be <code>/home/username</code>, where <code>username</code> is the name of your user on that system. A directory is literally just a file folder; Linux and Unix treat most resources in the computer as a files (in various complicated ways), so effectively, all a terminal is is a glorified file explorer with lots of commands built in that you can run inside the various directories you're working in. Though annoying, we'll continue to use the term "directory" and not "folder" for this documentation; there are a lot of commands named after abbreviations for the word "directory," so we'll keep using "directory" so you can start getting familiar with the shorthand.</p>
+<p>An alternate name for the terminal is, fittingly, the "command-line" (or CLI, for "Command-Line Interface"), as you'll be executing <strong>commands</strong> to move around between directories and interact with the files that you're working on. Everything in a terminal environment uses <strong>relative paths</strong> to wherever your working directory is; in practice, this means that any time you run commands or try to work with files, you'll have to access them by providing their location <em>relative</em> to wherever your current directory is. Understanding filepath notation and the tricks to write it out for your commands is 90% of the battle when learning to use a terminal. Though you don't need a full understanding of how the Linux/Unix filesystem is structured, you <em>will</em> need to know how to navigate and reference the paths to the files you're working on.</p>
+<h2 id="basic-commands">Basic Commands</h2>
+<p>When using a terminal, you will get used to using a couple commands <em>very</em> quickly for navigation and general usage of the environment. The first, and most fundamental, is <code>pwd</code>, which stands for <strong>P</strong>resent <strong>W</strong>orking <strong>D</strong>irectory. This will print the full path of your working directory; in other words, <em><code>pwd</code> will tell you where you currently are.</em>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>&gt;<span class="w"> </span><span class="nb">pwd</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>/home/cayenne
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>&gt;_
+</span></code></pre></div></p>
+<p>Once you know <em>where</em> you are, the next question is "well, what's in here with me?" The answer to this question can be found with <code>ls</code>, which is literally just short for <strong>l</strong>i<strong>s</strong>t. This does exactly what it says on the tin - running the command with no arguments will list the contents of the current directory, and running it with an additional path added to it will list the contents of <em>that</em> directory.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>&gt;<span class="w"> </span><span class="nb">pwd</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>/home/cayenne/Documents/rocketry/avionics/active_drag_system
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>&gt;<span class="w"> </span>ls
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>build<span class="w">  </span>CMakeLists.txt<span class="w">  </span>hardware<span class="w">  </span>include<span class="w">  </span>LICENSE<span class="w">  </span>notes.txt<span class="w">  </span>README.md<span class="w">  </span>src<span class="w">  </span>tools
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>&gt;<span class="w"> </span>ls<span class="w"> </span>src
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>active_drag_system.cpp<span class="w">  </span>adxl375.cpp<span class="w">  </span>CMakeLists.txt<span class="w">  </span>heartbeat.cpp<span class="w">  </span>iim42653.cpp<span class="w">  </span>kalman_filter.cpp<span class="w">  </span>log_format.cpp<span class="w">  </span>mmc5983ma.cpp<span class="w">  </span>ms5607.cpp<span class="w">  </span>pa1616d.cpp<span class="w">  </span>pwm.cpp<span class="w">  </span>serial.cpp
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>&gt;_
+</span></code></pre></div>
+Note that in the first <code>ls</code> call, some of the listed files have <code>.[filetype]</code> file extensions, while some of them don't; the ones with file extensions are actual files, whereas the ones without them are typically directories. Most of the time, the terminal will represent these in different colors for convenience.</p>
+<p>Now that you know how to find where you are and know what's in various directories, the next order of business is moving around. This is done with <code>cd</code>, short for <strong>c</strong>hange <strong>d</strong>irectory. If done with no argument, this will move you back to the <em>home</em> directory, and if done with a path argument, it will move to that directory. 
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>&gt;<span class="w"> </span><span class="nb">pwd</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>/home/cayenne/Documents/rocketry/avionics/active_drag_system
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>&gt;<span class="w"> </span><span class="nb">cd</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>&gt;<span class="w"> </span><span class="nb">pwd</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>/home/cayenne
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>&gt;<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>Documents
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>&gt;<span class="w"> </span><span class="nb">pwd</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>/home/cayenne/Documents
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>&gt;_
+</span></code></pre></div></p>
+<p>With that out of the way, let's make some files and directories. There are a couple of ways to do this, and it varies if you're working with directories or files - we'll list them out preemptively. For files, <code>touch</code> followed by the name of the file will create a file in the current directory if it doesn't already exist, or at the configured directory if the name of the file is passed with a relative path as well (see below). The equivalent of this for directories is <code>mkdir</code>, short for <strong>m</strong>a<strong>k</strong>e <strong>dir</strong>ectory. 
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>&gt;<span class="w"> </span>ls
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>testfile.txt
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>&gt;<span class="w"> </span>touch<span class="w"> </span>testfile2.txt
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>&gt;<span class="w"> </span>ls
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>testfile.txt<span class="w"> </span>testfile2.txt
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>&gt;<span class="w"> </span>mkdir<span class="w"> </span>exampledir
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>&gt;<span class="w"> </span>ls
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>exampledir<span class="w"> </span>testfile.txt<span class="w"> </span>testfile2.txt
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>&gt;<span class="w"> </span>touch<span class="w"> </span>exampledir/examplefile.txt
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>&gt;<span class="w"> </span>ls<span class="w"> </span>exampledir
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>examplefile.txt
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>&gt;_
+</span></code></pre></div></p>
+<p>Now to <em>move</em> files and directories, we simply use the <code>mv</code> command - take a guess what that's short for. This works for directories regardless of whether they have any files currently in them; the whole directory will be moved and preserve its internal structure. Simply add an argument for the file/directory that you'd like to move, followed by the path to where you want to move it to.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>&gt;<span class="w"> </span>mkdir<span class="w"> </span>movedir
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>&gt;<span class="w"> </span>ls<span class="w"> </span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>exampledir<span class="w"> </span>movedir<span class="w"> </span>testfile.txt<span class="w"> </span>testfile2.txt
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>&gt;<span class="w"> </span>mv<span class="w"> </span>testfile.txt<span class="w"> </span>movedir
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>&gt;<span class="w"> </span>mv<span class="w"> </span>exampledir<span class="w"> </span>movedir
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>&gt;<span class="w"> </span>ls
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>movedir<span class="w"> </span>testfile2.txt
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>&gt;<span class="w"> </span>ls<span class="w"> </span>movedir
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>exampledir<span class="w"> </span>testfile.txt
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>&gt;<span class="w"> </span>ls<span class="w"> </span>movedir/exampledir
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>examplefile.txt
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>&gt;_
+</span></code></pre></div></p>
+<p>To <em>remove</em> files on the other hand, we use the <code>rm</code> command, which again is pretty easy to intuit the shorthand. This will simply delete files, no questions asked; to remove directories, the <code>-r</code> flag needs to be passed, which is short for <code>--recursive</code> to recursively <code>rm</code> all of the directory's subdirectories and the files within them. <strong>Be careful when doing this.</strong> The terminal does not discriminate, and if you accidentally provide the wrong path, it <em>will</em> just delete it without confirmation.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>&gt;<span class="w"> </span>ls<span class="w"> </span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>movedir<span class="w"> </span>testfile.txt
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>&gt;<span class="w"> </span>rm<span class="w"> </span>testfile.txt
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>&gt;<span class="w"> </span>ls<span class="w"> </span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>movedir
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>&gt;<span class="w"> </span>rm<span class="w"> </span>-r<span class="w"> </span>movedir
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>&gt;<span class="w"> </span>ls<span class="w"> </span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="c1"># [nothing is printed here, as this directory is now empty]</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>&gt;_
+</span></code></pre></div></p>
+<p>Now as for modifying files, this is up to personal preference, but we'll add a couple useful commands here. The <code>echo</code> command can be used to print anything to the terminal, including variables; it can <em>also</em> be used to <code>echo</code> strings into files, by using the <code>&gt;</code> operator. To read the contents of a file out to the terminal, use the <code>cat</code> command, which is short for con<strong>cat</strong>enate; <code>cat</code> can be used for a couple other string handling things, but we'll just use it as a file readout for now.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>&gt;<span class="w"> </span>touch<span class="w"> </span>testfile.txt
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>&gt;<span class="w"> </span>cat<span class="w"> </span>testfile.txt
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="c1"># [the (touch) command creates empty files, so this is doesn&#39;t print anything]</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>&gt;<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello, World!&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>testfile.txt
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>&gt;<span class="w"> </span>cat<span class="w"> </span>testfile.txt
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>Hello,<span class="w"> </span>World!
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>&gt;_
+</span></code></pre></div></p>
+<p>There <em>are</em> terminal based text-editors that let one edit files over the command-line and write in them natively. Documenting them is outside the scope of this doc; but for reference, the "default" one installed on most systems is <code>nano</code>, a very barebones editor which includes popups in its window for the various hotkeys (such as saving and exiting, copy/paste, etc). To edit a file with <code>nano</code>, simply use <code>nano</code> followed by the path to the file you want to edit; the rest of the hotkeys will be listed at the bottom of the screen. A more advanced alternative is <code>vim</code>, but only open a file with <code>vim</code> if you've read about how to use it first, as the hotkeys are not listed in the interface (and are <em>not</em> initially intuitive). Note that whichever terminal editor you use (if you choose to use one), if you open a file that does not yet exist and write to it, it will create that file on the drive.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>&gt;<span class="w"> </span>ls
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>testfile.txt
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>&gt;<span class="w"> </span>nano<span class="w"> </span>nanofile.txt
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># [inside the nano editor, &quot;I wrote this in nano!&quot; is written and saved]</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>&gt;<span class="w"> </span>ls
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>nanofile.txt<span class="w"> </span>testfile.txt
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>&gt;<span class="w"> </span>cat<span class="w"> </span>nanofile.txt
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>I<span class="w"> </span>wrote<span class="w"> </span>this<span class="w"> </span><span class="k">in</span><span class="w"> </span>nano!
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>&gt;_
+</span></code></pre></div></p>
+<p>Lastly, if you have files/directories that you'd like to copy, the requisite command is <code>cp</code>; all you need is to add an argument for the file/directory, and then a second one for the path of where you want to copy it to. The copy path argument is explicit, i.e. if you want to change the name of a copy of a file just change its name by adding the changed name to the copied path. For directories, the same flag as <code>rm</code> is necessary - add a <code>-r</code> to tell the <code>cp</code> command to recursively copy the contents of a directory when you copy it. 
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>&gt;<span class="w"> </span>ls
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>nanofile.txt<span class="w"> </span>testfile.txt
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>&gt;<span class="w"> </span>mkdir<span class="w"> </span>copydir
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>&gt;<span class="w"> </span>cp<span class="w"> </span>testfile.txt<span class="w"> </span>copydir/copytestfile.txt
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>&gt;<span class="w"> </span>ls
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>copydir<span class="w"> </span>nanofile.txt<span class="w"> </span>copytestfile.txt<span class="w"> </span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>&gt;<span class="w"> </span>cat<span class="w"> </span>copydir/copytestfile.txt
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>Hello,<span class="w"> </span>World!
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>&gt;<span class="w"> </span>cp<span class="w"> </span>-r<span class="w"> </span>copydir<span class="w"> </span>copyofcopydir
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>&gt;<span class="w"> </span>ls<span class="w"> </span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>copydir<span class="w"> </span>copyofcopydir<span class="w"> </span>testfile.txt
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>&gt;<span class="w"> </span>cat<span class="w"> </span>copyofcopydir/copytestfile.txt
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>Hello,<span class="w"> </span>World!
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>&gt;_<span class="w"> </span>
+</span></code></pre></div></p>
+<p>And finally, one last quick note - there are a <em>lot</em> of commands for navigating the terminal, and you'll get more used to them over time. Luckily, there is documentation for <em>every single command</em> just directly built into the terminal - type <code>man</code>, short for <strong>man</strong>ual, followed by the command that you want to reference the usage of. To exit these <code>man</code> windows, hit <code>q</code>, or use <code>ctrl + c</code> to force quit; the latter applies to any process running in a terminal if you want to force quit it prematurely.</p>
+<h2 id="basic-command-quick-reference">Basic Command Quick Reference</h2>
+<ul>
+<li><strong>Directory Movement/Content</strong><ul>
+<li><code>pwd</code> - print the <strong>p</strong>resent <strong>w</strong>orking <strong>d</strong>irectory</li>
+<li><code>ls</code> - <strong>l</strong>i<strong>s</strong>t the contents of a directory</li>
+<li><code>cd</code> - <strong>c</strong>hange <strong>d</strong>irectories to a provided target</li>
+</ul>
+</li>
+<li><strong>File Creation/Destruction</strong><ul>
+<li><code>touch</code> - create an empty file if it does not exist already</li>
+<li><code>mkdir</code> - <strong>m</strong>a<strong>k</strong>e <strong>dir</strong>ectory with configured name</li>
+<li><code>cp</code> - <strong>c</strong>o<strong>p</strong>y a given file to a second location via path<ul>
+<li><code>cp -r</code> - do the above but for directories, <strong>r</strong>ecursively</li>
+</ul>
+</li>
+<li><code>rm</code> - <strong>r</strong>e<strong>m</strong>ove a given file (delete it)<ul>
+<li><code>rm -r</code> - do the above but for directories, deleting all contents</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>File Modification and Content</strong><ul>
+<li><code>cat</code> - con<strong>cat</strong>enate one or multiple files, and <em>print their contents</em></li>
+<li><code>echo "some string" &gt; file.extension</code> - append <code>some string</code> to the end of <code>file.extension</code></li>
+<li><code>nano</code> - in-terminal file editor with keybinds listed</li>
+</ul>
+</li>
+<li><strong>File Path References</strong><ul>
+<li><code>.</code> - current directory, i.e. equivalent to <code>pwd</code></li>
+<li><code>..</code> - <em>parent</em> directory of current directory</li>
+<li><code>~</code> - home directory, usually <code>/home/username</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="filepaths-filepaths-galore">Filepaths, Filepaths Galore</h2>
+<p>Referencing Linux/Unix filepaths seems very scary at first, but is quite nice once gotten used to. The most important part of this is knowing the necessary shorthand, of which there is not much. There are three symbols which will be used in conjunction with these paths frequently:</p>
+<ul>
+<li><code>.</code> - A single dot denotes the <em>current</em> directory, i.e. <code>.</code> is equivalent to running <code>pwd</code></li>
+<li><code>..</code> - Two dots denotes the <em>parent</em> directory of your current one, i.e. if <code>pwd</code> returns <code>/parent/child</code> then <code>..</code> would return <code>parent</code></li>
+<li><code>~</code> - The tilde denotes the <em>home</em> directory, i.e. <code>~</code> would by default return <code>/home/username</code></li>
+</ul>
+<p>Most of the difficulty of learning to work with terminals is learning the shorthand and tricks for moving between directories and referencing them with the above. Notably, you can <em>chain</em> these operators together like you would parent and child directories with a <code>/</code>. For example, say you stored all of your cloned Github repositories inside the same parent directory. If you were in the CMake <code>build/</code> folder of a separate repository, and wanted to <code>cd</code> into the <code>build/</code> folder of the <code>active_drag_system</code> to compare something, then you could simply run the following:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">cd</span><span class="w"> </span>../../active_drag_system/build
+</span></code></pre></div>
+The double <code>../..</code> references the parent <em>of</em> the parent, the shared directory where both of your repos are; then, the <code>active_drag_system/build</code> folder can just be directly accessed from there. You can provide either the <em>direct</em> or the <em>relative</em> path to any given directory or file, as long as that actually is where it is - and this can be done with any combination of the shorthand above. If you're currently in <code>/home/username/</code> for example, and you want to reference <code>Documents/file.txt</code> for something, the following would all be equivalent:</p>
+<ul>
+<li><code>Documents/file.txt</code></li>
+<li><code>./Documents/file.txt</code></li>
+<li><code>home/username/Documents/file.txt</code></li>
+<li><code>~/Documents/file.txt</code></li>
+<li><code>../username/Documents/file.txt</code></li>
+<li><code>Documents/../Documents/../Documents/../Documents/file.txt</code></li>
+</ul>
+<p>Generally, though the last one would work just fine, try to be as concise with your paths as possible.</p>
+<h2 id="packages-and-where-to-find-them">Packages and Where to Find Them</h2>
+<p>When you're running a terminal, you're a bit <em>closer</em> than you would otherwise be to the underlying software that runs your operating system. This is good and bad - it means that you have access to the actual libraries that the OS will use to do things like compile and run programs, but it also means that you'll have to <em>manually</em> go in and install most of them, as they don't come by default in most cases. Luckily, there is usually something called a <strong>package manager</strong> installed by default in most terminals. Which package manager you have depends entirely on what OS you're running - Debian Linux (including Ubuntu) uses a common package manager called aptitude (or <code>apt</code> in a terminal), MacOS commonly uses <code>brew</code>, Arch Linux uses <code>pacman</code>, and so on and so forth; the syntax for using each one is entirely based on which one you have, so it's outside the scope of this document to try and reference each one. For this case, we'll use <code>apt</code> as an example, as it's the most common; installing packages with <code>apt</code> is simple, just needing a command to <code>update</code> the list of packages, and then a second one to <code>install</code> the packages by name once they're found.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>package<span class="w"> </span>anotherpackage<span class="w"> </span>thirdpackage<span class="w"> </span>
+</span></code></pre></div></p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 26, 2025 19:23:25 UTC">October 26, 2025</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Created">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 26, 2025 19:23:25 UTC">October 26, 2025</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.tabs.link", "content.code.copy", "content.code.select", "content.code.annotate", "content.action.edit", "content.action.view", "navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
