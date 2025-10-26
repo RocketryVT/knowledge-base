@@ -1,0 +1,3 @@
+//UNDER CONSTRUCTION, CHECK BACK SOON.
+
+Almost all Windows/VSCode extension options should work fine on Mac, with the exception of WSL; Mac exposes a `bash` terminal directly to you, so for the `git submodule update` phase, you should be able to just do so natively in a Mac (Unix) terminal instead of opening a Linux shell manually. The `minicom` instructions should also apply. Note that instead of `apt`, the default Mac package manager is `brew`, i.e. the command would look like `brew install git`.

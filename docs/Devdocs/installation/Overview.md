@@ -1,0 +1,12 @@
+## What am I Doing Here?
+Our development toolchain is set up for work based around the **RP2040** and **RP2350** microcontrollers, as these are the microcontrollers that we've set up our development environment around. This development can be done on any operating system, though it will look slightly different depending on which OS you're using, as different ones have different underlying mechanisms that we'll use to interact with the parts of the compilation and uploading process. This document breaks down the general sequence of tasks that you'll use to compile, upload, and then interact with your code on any of our devices; the other ones labeled for respective operating systems will detail how to install and configure all of the tools necessary to use them.
+
+For reference, all of this writing is based around [the official documentation](https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf) for development with these microcontrollers; if anything is not explained in enough detail here or needs further reference to understand, check out the official docs, as they are quite detailed and well-written.
+
+## Steps of the Process
+Generally, there are 4 steps to our development process on any of our hardware after cloning a given repository:
+
+1. You will **develop** your code in a given IDE or Editor; generally, this will be `VSCode`, but may vary if you manually configure your toolchains outside of the built-in ones in that editor.
+2. You'll **compile** your code using `CMake` - this will either be done by the nice interface included in the `VSCode` extension, or by manually executing a couple commands in a native terminal environment.
+3. You'll then **upload** your code to the board, either by booting the board into upload mode and manually dragging and dropping the `.uf2` file that CMake generates into it, or by using the `picotool` utility over a terminal (if in a *native* terminal environment - this will not work in WSL without a couple of extra steps to expose your USB ports to it). If using the VSCode extension, the `picotool` method will be done for you automatically.
+4. Finally, you'll then **test/debug** your code using our serial tool to start and stop various tasks in the OS running on it; this will either be done using the `Serial Monitor` VSCode extension or `PuTTY` if in a Windows environment, or `minicom` if on a native terminal environment (see above about WSL and USB ports).

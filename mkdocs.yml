@@ -41,24 +41,35 @@ theme:
         icon: material/brightness-4
         name: Switch to system preference
 nav:
-  - Home: README.md
-  - Contributing: contributing.md
-  - Summary: SUMMARY.md
-  - 2024-2025: 
-      - 2024-2025/README.md
-      - Design: 2024-2025/Design/README.md
-      - Hardware: 2024-2025/Hardware/README.md
-      - Software: 2024-2025/Software/README.md
-  - Ansys:
+    - Home: README.md
+    - Contributing: contributing.md
+    - Summary: SUMMARY.md
+    - Dev Environment:
+        - Bash Terminal: Devdocs/Terminal.md
+        - CMake: Devdocs/CMake.md
+        - Git/GitHub: Devdocs/Git.md
+        - Serial Tool: Devdocs/Serial.md
+        - Installation and Setup:
+            - Overview: Devdocs/installation/Overview.md
+            - Linux: Devdocs/installation/Linux.md
+            - Mac:   Devdocs/installation/Mac.md
+            - Windows: Devdocs/installation/Windows.md
+    - Ansys:
       - Ansys/README.md
       - Cloud Compute: Ansys/cloud-compute.md
-  - Hardware:
+    - Hardware:
       - Hardware/README.md
       - Active Drag System: Hardware/ActiveDragSystem/ads.md
-      - Batteris: Hardware/Batteries/README.md
-  - Software:
+      - Batteries: Hardware/Batteries/README.md
+    - Software:
       - Software/README.md
       - Filters: Software/Filters/README.md
+    - Previous Design Years:
+      - 2024-2025: 
+        - 2024-2025/README.md
+        - Design: 2024-2025/Design/README.md
+        - Hardware: 2024-2025/Hardware/README.md
+        - Software: 2024-2025/Software/README.md
 
 markdown_extensions:
   - pymdownx.highlight:
